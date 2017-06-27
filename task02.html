@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+</head>
+<style>
+    li {
+        list-style: none;
+    }
+</style>
+<body>
+
+<h3>污染城市列表</h3>
+<ul id="aqi-list">
+    <!--
+        <li>第一名：福州（样例），10</li>
+          <li>第二名：福州（样例），10</li> -->
+</ul>
+
+<script type="text/javascript">
+
+    var aqiData = [
+        ["北京", 90],
+        ["上海", 50],
+        ["福州", 10],
+        ["广州", 50],
+        ["成都", 90],
+        ["西安", 100]
+    ];
+
+    (function () {
+
+        /*
+         在注释下方编写代码
+         遍历读取aqiData中各个城市的数据
+         将空气质量指数大于60的城市显示到aqi-list的列表中
+         */
+        var Ul = document.getElementById("aqi-list");
+
+        /*
+         var aqiList = [];
+         for (var i = 0; i < aqiData.length; i++) {
+         if (aqiData[i][1] > 60) {
+         aqiList.push(aqiData[i])
+         }
+         }
+         console.log(aqiList);
+         */
+
+        //获取指数值大于60的城市放入list里   filter过滤器
+        function pollutionCity(item, index, array) {
+            return item[1] > 60;
+        }
+
+        var list = aqiData.filter(pollutionCity);
+//        console.log(list);
+//        debugger
+
+        //对获取的城市根据质量指数进行排序 return b-a
+        list.sort(function (a, b) {
+            return b[1] - a[1];
+        });
+
+        console.log(list);
+
+        /*
+         创建一个新的对象 document.createElement()
+         document.createElement()是在对象中创建一个对象，要与appendChild() 或 insertBefore()方法联合使用。
+         appendChild() 方法在节点的子节点列表末添加新的子节点。
+         insertBefore() 方法在节点的子节点列表任意位置插入新的节点。
+         */
+        list.forEach(function (item, index, array) {
+            var node = document.createElement("li");
+            var i = index + 1;
+            node.innerHTML = "第" + i + "名:" + array[index][0] + "," + array[index][1];
+            Ul.appendChild(node);
+        })
+
+    })();
+
+</script>
+</body>
+</html>
