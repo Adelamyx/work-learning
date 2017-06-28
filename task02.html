@@ -93,6 +93,18 @@
         console.log(els);
         Ul.innerHTML += els.join("");
 
+
+        /*
+         //        方法三:
+         var mid = document.createDocumentFragment();
+         list.forEach(function (item, index, array) {
+         var node = document.createElement("li");
+         var i = index + 1;
+         node.innerHTML += "第" + i + "名:" + array[index][0] + "," + array[index][1];
+         mid.appendChild(node);
+         });
+         Ul.appendChild(mid);*/
+
     })();
 
 </script>
