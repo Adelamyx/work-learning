@@ -83,10 +83,10 @@
 //            lis.innerHTML += array[index][0] + array[index][1];
 //            resortUl.appendChild(lis);
 //        });
+        var arr = ['一', '二', '三', '四', '五', '六', '七'];
         var maps = data.map(function (item, index, array) {
             var lis = document.createElement("li");
-            var i = index + 1;
-            lis.innerHTML += "第" + i + "名：" + array[index][0] + "空气质量：" + array[index][1];
+            lis.innerHTML += "第" + arr[index] + "名：" + array[index][0] + "空气质量：" + array[index][1];
             return lis.outerHTML;
         });
         resortUl.innerHTML = maps.join("");
