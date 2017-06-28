@@ -13,9 +13,8 @@
 
 <h3>污染城市列表</h3>
 <ul id="aqi-list">
-    <!--
-        <li>第一名：福州（样例），10</li>
-          <li>第二名：福州（样例），10</li> -->
+    <li>第一名：福州（样例），10</li>
+    <li>第二名：福州（样例），10</li>
 </ul>
 
 <script type="text/javascript">
@@ -36,7 +35,7 @@
          遍历读取aqiData中各个城市的数据
          将空气质量指数大于60的城市显示到aqi-list的列表中
          */
-        var Ul = document.getElementById("aqi-list");
+        var Ul = document.querySelector("ul");
 
         /*
          var aqiList = [];
@@ -62,20 +61,37 @@
             return b[1] - a[1];
         });
 
-        console.log(list);
-
         /*
          创建一个新的对象 document.createElement()
          document.createElement()是在对象中创建一个对象，要与appendChild() 或 insertBefore()方法联合使用。
          appendChild() 方法在节点的子节点列表末添加新的子节点。
          insertBefore() 方法在节点的子节点列表任意位置插入新的节点。
          */
-        list.forEach(function (item, index, array) {
-            var node = document.createElement("li");
+
+
+        /*
+         //方法一：
+         list.forEach(function (item, index, array) {
+         var node = document.createElement("li");
+         var i = index + 1;
+         node.innerHTML += "第" + i + "名:" + array[index][0] + "," + array[index][1];
+         Ul.appendChild(node);
+         });*/
+
+
+        //方法二：dom操作减少，性能提高了
+        const els = list.map(function (item, index, array) {
+            var nodes = document.createElement("li");
             var i = index + 1;
-            node.innerHTML = "第" + i + "名:" + array[index][0] + "," + array[index][1];
-            Ul.appendChild(node);
-        })
+            nodes.innerHTML += "第" + i + "名:" + array[index][0] + "," + array[index][1] + "<br>";
+            return nodes.outerHTML;
+        });
+
+        //        els.forEach(function (item, index) {
+        //            Ul.appendChild(els[index]);
+        //        });
+        console.log(els);
+        Ul.innerHTML += els.join("");
 
     })();
 
