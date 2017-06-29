@@ -47,6 +47,13 @@
          ]
          */
         var sourceli = document.querySelectorAll("#source li");
+        debugger
+        console.log("原始", Object.prototype.toString.call(sourceli));
+        Array.prototype.slice.call(sourceli);
+        console.log("转化后", Object.prototype.toString.call(Array.prototype.slice.call(sourceli)));
+
+//        console.log(Object.prototype.toString.call(Array.prototype.slice.call(sourceli)))
+//        console.log(Object.prototype.toString.call([]))
         /*
          //方法一：
          var data = [];
@@ -57,18 +64,29 @@
          });
          return data;*/
 
-        var data = Array.prototype.map.call(sourceli, function (item, index, array) {
-            var city = array[index].innerHTML.split("空气质量：")[0];//string.split()拆分和array.join()连接是相反的。
-            var num = array[index].outerText.split("空气质量：")[1];
-            return [city, num];
-        });
 
+        //出错原因：sourceli不是一个正常的数组，他是nodelist，第一步是先把sourceli转换为数组：Array.prototype.slice.call(sourceli)进行转换
 //        sourceli.map(function (item, index, array) {
 //            var city = array[index].innerHTML.split("空气质量：")[0];//string.split()拆分和array.join()连接是相反的。
 //            var num = array[index].outerText.split("空气质量：")[1];
 //            var a = [city, num];
 //            return a;
 //        });
+
+        var data = Array.prototype.slice.call(sourceli).map(function (item, index, array) {
+            var city = array[index].innerHTML.split("空气质量：")[0];//string.split()拆分和array.join()连接是相反的。
+            var num = array[index].outerText.split("空气质量：")[1];
+            return [city, num];
+        });
+
+        //简写
+//        var data = Array.prototype.map.call(sourceli, function (item, index, array) {
+//            var city = array[index].innerHTML.split("空气质量：")[0];//string.split()拆分和array.join()连接是相反的。
+//            var num = array[index].outerText.split("空气质量：")[1];
+//            return [city, num];
+//        });
+
+
         return data;
     }
 
@@ -84,6 +102,7 @@
         });
         return data;
     }
+
     /* console.log(getData());
      console.log(sortAqiData(getData()));*/
     /**
@@ -107,6 +126,7 @@
         });
         resortUl.innerHTML = maps.join("");
     }
+
     var btns = document.querySelector("#sort-btn");
 
     function btnHandle() {
