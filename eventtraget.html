@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event.target</title>
+</head>
+<body>
+
+<ul id="u">
+    <li>123<span>123</span></li>
+    <li>456<strong>123</strong></li>
+    <li>789<span>789</span></li>
+</ul>
+
+<script type="text/javascript">
+    var uls = document.querySelector("#u");
+    console.log(uls);
+
+    uls.addEventListener("click", function () {
+        alert(event.srcElement.innerText);
+        console.log(event.srcElement);
+        console.log(event.srcElement.parameterNames);
+    }, false);
+
+
+</script>
+
+</body>
+</html>
