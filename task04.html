@@ -2,9 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>task04</title>
+    <style>
+        li {
+            display: inline-block;
+            background-color: paleturquoise;
+            color: azure;
+            font-size: 20px;
+            text-align: center;
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
+
+<!--模拟一个队列，队列的每个元素是一个数字，初始队列为空
+有一个input输入框，以及4个操作按钮
+
+点击"左侧入"，将input中输入的数字从左侧插入队列中；
+点击"右侧入"，将input中输入的数字从右侧插入队列中；
+点击"左侧出"，读取并删除队列左侧第一个元素，并弹窗显示元素中数值；
+点击"右侧出"，读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
+点击队列中任何一个元素，则该元素会被从队列中删除-->
+
+<input type="text" id="isNum" name="number">
+<button id="addleft">左侧入</button>
+<button id="addright">右侧入</button>
+<button id="removeleft">左侧出</button>
+<button id="removeright">右侧出</button>
+<ul id="inout">
+
+</ul>
+
+
+<script type="text/javascript">
+    var isNums = document.querySelector("#isNum");
+    var buttons = document.querySelectorAll("button");
+    var inout = document.querySelector("#inout");
+
+    function insert(direction) {
+        var item = isNums.value;
+        if (item == "") {
+            alert("不能为空！");
+        }
+        else if (isNaN(item)) {
+            alert("请输入数字！")
+        } else {
+            var li = document.createElement("li");
+            li.innerHTML = isNums.value;
+            if (direction === "left") {
+                inout.insertBefore(li, inout.firstChild);
+            } else if (direction === "right") {
+                inout.appendChild(li);
+            }
+        }
+    }
+
+    function remove(node, direction) {
+        var li = document.createElement("li");
+        li.innerHTML = isNums.value;
+        if (inout.childElementCount <= 0) {
+            alert("没有可以删除的元素！");
+        } else {
+            if (direction === "left") {
+                alert("删除" + inout.firstChild.textContent + "!");
+                inout.removeChild(inout.firstChild);
+            } else if (direction === "right") {
+                alert("删除" + inout.lastChild.textContent + "!");
+                inout.removeChild(inout.lastChild);
+            }
+            else {
+                alert("删除" + inout.removeChild(node).textContent + "!");
+
+            }
+        }
+    }
+
+    buttons[0].addEventListener("click", function () {
+        insert("left");
+        isNums.value = "";
+    }, false);
+
+    buttons[1].addEventListener("click", function () {
+        insert("right");
+        isNums.value = "";
+    }, false);
+
+    buttons[2].addEventListener("click", function () {
+        remove(-1, "left");
+    }, false);
+
+    buttons[3].addEventListener("click", function () {
+        remove(-1, "right");
+    }, false);
+
+    inout.addEventListener("click", function () {
+        remove(event.target);
+    }, false);
+    
+
+
+</script>
 </body>
 </html>
