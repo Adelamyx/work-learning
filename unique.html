@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去重</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var a = [1, "1", 2, "1", true, false, 3, "3", false, 9, 2];
+
+    /*    //方法一：需要排序再进行去重
+     a.sort();
+     console.log(a);
+     var n = [a[0]];
+     var count = 0;
+     for (var i = 0; i < a.length; i++) {
+     if (!(a[i] === n[count])) {
+     n.push(a[i]);
+     count++;
+     }
+     }
+     console.log(1, n);*/
+
+    console.log(a);
+    function unique(array) {
+        var news = [];
+        debugger
+        for (var i = 0; i < array.length; i++) {
+
+            if (news.indexOf(array[i]) === -1) {
+                news.push(array[i]);
+            }
+        }
+        return news;
+    }
+    console.log(unique(a));
+
+
+</script>
+
+</body>
+</html>
