@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+    //问题-：找出元素 item 在给定数组 arr 中的位置
+    function indexOf(arr, item) {
+        return arr.indexOf(item);
+    }
+    console.log(indexOf([1, 2, 3, 4], 3));
+
+
+    //问题二：计算给定数组 arr 中所有元素的总和,数组中的元素均为 Number 类型
+    function sum(arr) {
+        var sum = 0;
+        arr.forEach(function (item, index, array) {
+            sum = sum + item;
+        });
+        return sum;
+    }
+    console.log(sum([1, 2, 3, 4]));
+
+
+    //问题三：移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组
+    //remove([1, 2, 3, 4, 2], 2)
+
+    function remove(arr, item) {
+        var b = arr.filter(function (items, index, array) {
+            return items != item;
+        });
+        return b;
+    }
+    console.log(remove([1, 2, 3, 4, 2], 2));
+
+
+    //问题四：移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+    //removeWithoutCopy([1, 2, 2, 3, 4, 2, 2], )
+    //方法一：
+    function removeWithoutCopy1(arr, item) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === item) {
+                arr.splice(i, 1);
+                i--;//splice改变了数组的长度
+            }
+        }
+        return arr;
+    }
+    console.log("removeWithoutCopy", removeWithoutCopy1([1, 2, 2, 3, 4, 2, 2], 2));
+
+
+    //方法二：
+    function removeWithoutCopy2(arr, item) {
+        var as = Array.from(new Set(arr));//去重，JavaScript里的数组转化新方法Array.From
+
+        console.log("去重后的数组", as);
+        var j = as.indexOf(item);//找到item在的位置
+//        console.log('j:',j) ;
+        as.splice(j, 1);//删除item
+        return as;
+    }
+    console.log(removeWithoutCopy2([1, 2, 2, 3, 4, 2, 2], 2));
+
+
+    //问题五：在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组
+    //append([1, 2, 3, 4],  10)
+    var a = ["a", "ww", 3, 4, 3];
+    function append(arr, item) {
+        var newarr = arr.slice(0);//使用slice()复制数组arr赋值给newarr,用push()添加元素item
+        newarr.push(item);
+        return newarr;
+    }
+    console.log("原来的数组", a);
+    console.log("新的数组", append(a, 123));
+
+
+    //问题六：删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
+    //truncate([1, 2, 3, 4])
+
+    var a = [1, 2, 3, 4, 3];
+    function truncate(arr) {
+        var newarr = arr.slice(0);//使用slice()复制数组arr赋值给newarr,用push()添加元素item
+        newarr.pop();
+        return newarr;
+    }
+    console.log("原来的数组", a);
+    console.log("新的数组", truncate(a, 123));
+
+
+    //问题七：在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组
+    //prepend([1, 2, 3, 4], 10)
+    var b = [1, 2, 3, 4];
+    function prepend(arr, item) {
+        var newarr = arr.slice(0);
+        newarr.unshift(item);
+        return newarr;
+    }
+    console.log("原来的数组：", b);
+    console.log("新的数组：", prepend(b, 10));
+
+
+    //问题八：删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组
+    //curtail([1, 2, 3, 4])
+    var c = [1, 2, 3, 4];
+    function curtail(arr) {
+        var newarr = arr.slice(0);
+        newarr.shift();
+        return newarr;
+    }
+    console.log("原来的数组：", c);
+    console.log("新的数组：", curtail(c));
+
+
+    //问题九：合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组
+    //concat([1, 2, 3, 4], ['a', 'b', 'c', 1])
+    var arr1 = [1, 2, 3, 4];
+    var arr2 = ['a', 'b', 'c', 1];
+    function concat(arr1, arr2) {
+        var c = [];
+        return c.concat(arr1, arr2);
+    }
+    console.log(arr1);
+    console.log(arr2);
+    console.log(concat(arr1, arr2));
+
+
+    //问题十：在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组
+    //insert([1, 2, 3, 4], 'z', 2)
+
+    var arr = [1, 2, 3, 4];
+    function insert(arr, item, index) {
+        var newarr = arr.slice(0);
+        newarr.splice(index, 0, item);//splice(index,0,item)，0代表不删除任何项
+        return newarr;
+    }
+    console.log("原来的数组：", arr);
+    console.log("新的数组：", insert(arr, 'z', 2));
+
+
+    //问题十一：统计数组 arr 中值等于 item 的元素出现的次数
+    //count([1, 2, 4, 4, 3, 4, 3], 4)
+
+    function count(arr, item) {
+        var b = arr.filter(function (items) {
+            return items === item;
+        });
+        return b.length;
+    }
+    console.log(count([1, 2, 4, 4, 3, 4, 3], 4));
+
+
+    //问题十二：找出数组 arr 中重复出现过的元素
+    //duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]).sort()
+
+
+    function duplicates(arr) {
+        var result = [];
+        arr.forEach(function (item) {
+            debugger
+            if (arr.indexOf(item) != arr.lastIndexOf(item) && result.indexOf(item) === -1) {
+                result.push(item);
+            }
+        });
+        return result;
+    }
+
+    console.log('111', duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]).sort());
+
+
+</script>
+
+</body>
+</html>

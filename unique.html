@@ -22,19 +22,36 @@
      }
      console.log(1, n);*/
 
+    /* //方法二：使用数组的函数indexof，返回某个指定的字符串值在字符串中首次出现的位置
     console.log(a);
+     function unique(array) {
+     var news = [];
+     debugger
+     for (var i = 0; i < array.length; i++) {
+
+     if (news.indexOf(array[i]) === -1) {
+     news.push(array[i]);
+     }
+     }
+     return news;
+     }
+     console.log(unique(a));*/
+
+    /*console.log(a);
     function unique(array) {
         var news = [];
-        debugger
-        for (var i = 0; i < array.length; i++) {
-
-            if (news.indexOf(array[i]) === -1) {
-                news.push(array[i]);
+        array.forEach(function (item, index, array) {
+            if (news.indexOf(item) === -1) {
+                news.push(item);
             }
-        }
+        });
         return news;
     }
-    console.log(unique(a));
+    console.log(unique(a));*/
+
+    var sets=new Set(a);
+    console.log([...sets]);
+    // console.log(sets);
 
 
 </script>
