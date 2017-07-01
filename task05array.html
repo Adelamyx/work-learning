@@ -96,7 +96,7 @@
     //prepend([1, 2, 3, 4], 10)
     var b = [1, 2, 3, 4];
     function prepend(arr, item) {
-        var newarr = arr.slice(0);
+        var newarr = arr.slice(0);//使用slice（0）复制数组arr赋值给newarr
         newarr.unshift(item);
         return newarr;
     }
