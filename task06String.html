@@ -139,6 +139,21 @@
     console.log("14、trim()", orig.trim()); // 'foo'
 
 
+    //search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。
+
+    var searchs = "hello mm";
+    console.log("15、search()", searchs.search("mm"));
+
+
+    //replace()方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+    var replaces = "hello world! hello mm!";
+    console.log("16、replace()", searchs.replace(/mm/, "cc"));
+    console.log("原来的值", searchs);
+    console.log("全局", replaces.replace(/hello/g, "hi"));
+    console.log("第一个", replaces.replace(/hello/, "hi"));
+    console.log("原来的值", replaces);
+
+
 
 
 </script>
