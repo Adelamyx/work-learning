@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task07Date</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var d = new Date();
+
+    console.log("原来的值", d);
+
+    //getDate()方法可返回月份的某一天。
+    console.log("1、getDate()方法，可返回月份的某一天:", d.getDate(), "日");
+
+
+    //getDay()方法可返回表示星期的某一天的数字。
+    console.log("2、getDay()方法可返回表示星期的某一天的数字:周", d.getDay());
+
+
+    //getMonth()方法可返回表示月份的数字。
+    console.log("3、getMonth()方法可返回表示月份的数字:", d.getMonth(), "月");
+
+
+    //getFullYear() 方法可返回一个表示年份的 4 位数字。
+    console.log("4、getFullYear()方法可返回一个表示年份的4位数字:", d.getFullYear(), "年");
+
+
+    //getHours() 方法可返回时间的小时字段
+    console.log("5、getHours() 方法可返回时间的小时字段:", d.getHours(), "时");
+
+
+    //getMinutes() 方法可返回时间的分钟字段
+    console.log("6、getMinutes() 方法可返回时间的分钟字段:", d.getMinutes(), "分");
+
+
+    //getSeconds() 方法可返回时间的秒。返回值是 0 ~ 59 之间的一个整数。
+    console.log("7、getSeconds() 方法可返回时间的秒。返回值是 0 ~ 59 之间的一个整数:", d.getSeconds(), "秒");
+
+    //getMilliseconds() 方法可返回时间的毫秒。
+    console.log("8、getMilliseconds() 方法可返回时间的毫秒:", d.getMilliseconds(), "秒");
+
+
+    console.log(d.getFullYear() + "年" + d.getMonth() + "月" + d.getDate() + "日,周" + d.getDay());
+
+
+    //getTime()方法可返回距 1970 年 1 月 1 日之间的毫秒数。
+    console.log("9、getTime()方法可返回距 1970 年 1 月 1 日之间的毫秒数:", d.getTime());
+
+
+    //getUTCDate()    根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。
+    //getUTCDay()     根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。
+    //getUTCMonth()   根据世界时从 Date 对象返回月份 (0 ~ 11)。
+    //getUTCFullYear()根据世界时从 Date 对象返回四位数的年份。
+
+    //getUTCHours()   根据世界时返回 Date 对象的小时 (0 ~ 23)。
+    //getUTCMinutes() 根据世界时返回 Date 对象的分钟 (0 ~ 59)。
+    //getUTCSeconds() 根据世界时返回 Date 对象的秒钟 (0 ~ 59)。
+    //getUTCMilliseconds()根据世界时返回 Date 对象的毫秒(0 ~ 999)。
+    //parse()	      返回1970年1月1日午夜到指定日期（字符串）的毫秒数
+
+
+    //setDate()方法用于设置一个月的某一天。           dateObject.setDate(day)
+    //setMonth()方法用于设置月份。                   dateObject.setMonth(month,day)
+    //setFullYear() 方法用于设置年份。               dateObject.setFullYear(year,month,day)
+    //setHours() 方法用于设置指定的时间的小时字段      dateObject.setHours(hour,min,sec,millisec)
+    //setMinutes() 方法用于设置指定时间的分钟字段。    dateObject.setMinutes(min,sec,millisec)
+    //setSeconds() 方法用于设置指定时间的秒钟字段      dateObject.setSeconds(sec,millisec)
+    //setMilliseconds() 方法用于设置指定时间的毫秒字段 dateObject.setMilliseconds(millisec)
+
+    //setUTCDate()	根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。
+    //setUTCMonth()	根据世界时设置 Date 对象中的月份 (0 ~ 11)。
+    //setUTCFullYear()	根据世界时设置 Date 对象中的年份（四位数字）。
+    //setUTCHours()	根据世界时设置 Date 对象中的小时 (0 ~ 23)。
+    //setUTCMinutes()	根据世界时设置 Date 对象中的分钟 (0 ~ 59)。
+    //setUTCSeconds()	根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。
+    //setUTCMilliseconds()	根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。
+
+
+    //toString()	    把 Date 对象转换为字符串。
+    //toTimeString()	把 Date 对象的时间部分转换为字符串。
+    //toDateString()	把 Date 对象的日期部分转换为字符串。
+
+
+
+
+
+    d.setDate(15);
+    console.log("1-2、setDate()方法，用于设置一个月的某一天:", d);
+
+
+</script>
+
+
+</body>
+</html>
