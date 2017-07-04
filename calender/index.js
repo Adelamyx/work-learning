@@ -9,7 +9,7 @@
     var month = d.getMonth() + 1;//获取月   月是(0-11代表一到十二月份)
     var day = d.getDate();//获取日
     var week = d.getDay();//获取星期
-
+    var datearr = [];
 
     //日历头部显示
     function showTitle(year, month, day) {
@@ -44,6 +44,12 @@
     prevmonth.addEventListener("click", function () {
         if (month > 1) {
             month--;
+            showTitle(year, month, day);
+            arr(year, month, day);
+        } else {
+            year--;
+            month = 12;
+            showTitle(year, month, day);
             arr(year, month, day);
         }
     }, false);
@@ -56,46 +62,83 @@
             month++;
             showTitle(year, month, day);
             arr(year, month, day);
+        } else {
+            year++;
+            month = 1;
+            showTitle(year, month, day);
+            arr(year, month, day);
         }
     }, false);
 
-
+    //获取每个月日历上显示的天数
     function arr(year, month, day) {
         var countDay = getCountDays(year, month, day);//获取每月的天数
         var firsttoweek = gainfirstdaytoweek(year, month);//获取每月的第一天是周几
         var datearr = [];
-        debugger
 
         var firstline = (6 - firsttoweek) + 1;//第一行的个数值
         var heights = 0;//日历的高度
         var h = parseInt((countDay - firstline) / 7);//最后一行的个数
+        var lastlines = 0;//最后一行后面的数
+
 
         if ((countDay - firstline) % 7 === 0) {
             heights = h + 1;
+            lastlines = 0;
         } else {
             heights = h + 2;
+            lastlines = 7 - ((countDay - firstline) % 7);
         }
 
+
         var firstlines = 7 - firstline;//第一行前面有几个数字
-        debugger
-        var lastweekcount = getCountDays(year, month - 1, day);
+        var lastweekcount = getCountDays(year, month - 1, day);//上个月的天数
+
+
         for (var i = 0; i < firstlines; i++) {
             datearr.unshift(lastweekcount);
             lastweekcount--;
         }
-
         for (var i = 0; i < countDay; i++) {
             datearr.push(i + 1);
         }
 
+        for (var i = 0; i < lastlines; i++) {
+            datearr.push(i + 1);
+        }
 
-        console.log(datearr);
+
+        var tables = document.querySelector("#calendar-body-box");
+
+        var tableshead = "<tr>" +
+            "<th>周日</th>" +
+            "<th>周一</th>" +
+            "<th>周二</th>" +
+            "<th>周三</th>" +
+            "<th>周四</th>" +
+            "<th>周五</th>" +
+            "<th>周六</th>" +
+            "</tr>";
+
+        var tablesbody = "";
+        var tablesbodytd = "";
+        var tablesbodytr = "";
+
+        for (var i = 0; i < heights; i++) {
+            var tablesbodytd = "";
+            for (var j = 0; j < 7; j++) {
+                tablesbodytd += "<td>" + datearr[i * 7 + j] + "</td>";
+            }
+            tablesbodytr += "<tr>" + tablesbodytd + "</tr>";
+        }
+        tablesbody = tablesbodytr;
+        tables.innerHTML = tableshead + tablesbody;
+
     }
 
 
     showTitle(year, month, day);
     gainfirstdaytoweek(year, month);
-    console.log(getCountDays(year, month, day));
     arr(year, month, day);
 
 

@@ -1,7 +1,6 @@
 
 .calender {
     width: 280px;
-    height: 280px;
     border: 1px solid #ccc;
     display: block;
 }
@@ -48,7 +47,9 @@
     cursor: pointer;
 }
 
-.tds {
+.calendar-body-box tr td,
+.calendar-body-box tr th
+{
     text-align: center;
     height: 35px;
     width: 40px;
