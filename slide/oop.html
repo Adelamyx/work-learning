@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learning oop</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    //Javascript 面向对象编程
+
+    function Cat(name, color) {
+        this.name = name;
+        this.color = color;
+    }
+    Cat.prototype.speak = function (a) {
+        console.log(a);
+    };
+
+    var cat1 = new Cat();
+    var cat2 = new Cat("cc");
+    cat1.name = "mm";
+    cat1.color = "red";
+    console.log(cat1);
+    console.log(cat2);
+
+    cat1.speak(123);
+    cat2.speak(234);
+</script>
+
+</body>
+</html>
