@@ -3,6 +3,7 @@
     width: 280px;
     border: 1px solid #ccc;
     display: block;
+    position: relative;
 }
 
 .calendar-title-box {
@@ -16,6 +17,14 @@
 }
 
 .calender-year {
+    cursor: pointer;
+}
+
+.calendar-today {
+    color: pink;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 12px;
     cursor: pointer;
 }
 
@@ -48,11 +57,39 @@
 }
 
 .calendar-body-box tr td,
-.calendar-body-box tr th
-{
+.calendar-body-box tr th {
     text-align: center;
     height: 35px;
     width: 40px;
     color: #808080;
+    cursor: pointer;
+}
+
+.calendar-body-box tr td.a {
+    color: #ccc;
+}
+
+.calendar-body-box tr td.b {
+    color: red;
+}
+
+#yearselect {
+    position: absolute;
+    top: 36px;
+    left: 140px;
+    display: none;
+}
+
+#select {
+    width: 80px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.show {
+    display: block !important;
 }
 
