@@ -8,17 +8,17 @@ ul, li {
     width: 750px;
     height: 300px;
     overflow: hidden;
-    background-color: red;
     position: relative;
+    margin-bottom: 20px;
 }
 
-#point {
+.point {
     position: absolute;
     bottom: 8px;
     right: 25px;
 }
 
-#point span {
+.point span {
     width: 20px;
     height: 20px;
     background-color: white;
@@ -31,8 +31,14 @@ ul, li {
     cursor: pointer;
 }
 
-
-#point .highlight{
+.point .highlight {
     background-color: #FF7744;
     color: white;
+}
+
+#mm {
+    width: 750px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
 }
