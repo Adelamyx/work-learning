@@ -1,0 +1,102 @@
+.div {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.border-radius {
+    border-radius: 150px;
+    -webkit-border-radius: 150px; /*Mozilla 内核*/
+    -moz-border-radius: 150px; /*Webkit 内核*/
+}
+
+.box-shadow1 {
+    border-radius: 150px;
+    /*
+    基本语法是{box-shadow:[inset] x-offset y-offset blur-radius spread-radius color}
+    对象选择器 {box-shadow:[投影方式] X轴偏移量 Y轴偏移量  阴影模糊半径 阴影扩展半径 阴影颜色}
+    */
+    box-shadow: 0 0 20px 10px rgba(0, 204, 204, 0.5);
+    -webkit-box-shadow: 0 0 20px 10px rgba(0, 204, 204, 0.5);
+    -moz-box-shadow: 0 0 20px 10px rgba(0, 204, 204, 0.5);
+    /*使用rgba，透明度*/
+
+}
+
+.box-shadow2 {
+    box-shadow: 0 0 20px 10px rgba(0, 204, 204, 0.4);
+    -webkit-box-shadow: 0 0 20px 10px rgba(0, 204, 204, 0.4);
+    -moz-box-shadow: 0 0 20px 10px rgba(0, 204, 204, 0.4);
+}
+
+.background-size {
+    background-image: url("img/dog.jpg");
+    /*  Mozilla
+        -moz-background-size:auto||<length>||<percentage>||cover||contain;
+        Webkit
+        -webkit-background-size:auto||<length>||<percentage>||cover||contain;
+        Presto
+        -o-background-size:auto||<length>||<percentage>||cover||contain;
+        background-size:auto||<length>||<percentage>||cover||contain;*/
+    background-size: 80%;
+    -webkit-background-size: 80%;
+    -o-background-size: 80%;
+    -moz-background-size: 80%;
+    background-repeat: no-repeat;
+}
+
+.background-origin1 {
+    border: 20px solid #ccc;
+    padding: 20px;
+    background: url("img/smiley.gif") no-repeat;
+    -webkit-background-origin: border-box;
+    background-origin: border-box;
+}
+
+.background-origin2 {
+    border: 20px solid #ccc;
+    padding: 20px;
+    background: url("img/smiley.gif") no-repeat;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+}
+
+.background-origin3 {
+    border: 20px solid #ccc;
+    padding: 20px;
+    background: url("img/smiley.gif") no-repeat;
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
+}
+
+.text-shadow1 {
+    font-size: 40px;
+    text-shadow: 3px 3px 3px #ccc;
+}
+
+.transition {
+    transition: all 4s;
+}
+
+.transition:hover {
+    background-color: lightpink;
+    transform: rotate(360deg);
+}
+
+/*transform
+translate()
+通过 translate() 方法，元素从其当前位置移动，根据给定的 left（x 坐标） 和 top（y 坐标） 位置参数：transform: translate(50px,100px);
+
+rotate()
+通过 rotate() 方法，元素顺时针旋转给定的角度。允许负值，元素将逆时针旋转。transform: rotate(30deg);
+
+scale()
+通过 scale() 方法，元素的尺寸会增加或减少，根据给定的宽度（X 轴）和高度（Y 轴）参数：transform: scale(2,4);
+skew()
+通过 skew() 方法，元素翻转给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数：transform: skew(30deg,20deg);
+
+matrix()
+matrix() 方法把所有 2D 转换方法组合在一起。
+*/

@@ -1,0 +1,9 @@
+.ielts-content {
+    margin: 0px auto;
+    border: 1px solid #ccc;
+    width: 380px;
+    min-height: 300px;
+    background: url("img/top-bg.png") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}

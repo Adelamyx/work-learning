@@ -34,6 +34,7 @@ ul, li {
 .point .highlight {
     background-color: #FF7744;
     color: white;
+
 }
 
 #mm {
@@ -42,3 +43,4 @@ ul, li {
     overflow: hidden;
     position: relative;
 }
+
