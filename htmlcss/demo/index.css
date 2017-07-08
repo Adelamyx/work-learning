@@ -79,6 +79,7 @@ html {
 .nav-title {
     height: 41px;
     width: 100%;
+    margin-bottom: 4px;
 }
 
 .nav-title-li {
@@ -108,7 +109,7 @@ html {
 .nav-content {
     width: 100%;
     padding-top: 10px;
-    padding-bottom: 1px;
+    padding-bottom: 10px;
     background-color: rgb(240, 240, 240);
 
 }
@@ -313,18 +314,110 @@ html {
     top: 5px;
 
 }
-.offline-title{
+
+.offline-title {
     color: white;
     position: absolute;
     left: 10px;
     top: 5px;
 }
 
-.offline-add{
+.offline-add {
     color: white;
     position: absolute;
     right: 10px;
     top: 5px;
+}
+
+.evaluate {
+    padding-bottom: 6px;
+}
+
+.evaluate-num {
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+}
+
+.pagemain-evaluate {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.evaluate-li li {
+    width: 100%;
+    margin-left: 10px;
+    padding: 10px 0;
+    line-height: 20px;
+}
+
+.evaluate-li hr,
+.nav-content-div hr {
+    width: 365px;
+    float: right;
+    background-color: rgb(204, 204, 204);
+    height: 1px;
+    border: none;
+}
+
+.nav-content-div hr {
+    background-color: rgb(232, 232, 232);
+}
+
+.evaluate-li-left {
+    width: 30px;
+    float: left;
+}
+
+.evaluate-headimg {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+
+.evaluate-li-right {
+    width: 320px;
+    float: right;
+    padding: 0 10px;
+
+}
+
+.evaluate-r-top {
+    height: 20px;
+    color: rgb(153, 153, 153);
+    line-height: 20px;
+    position: relative;
+
+}
+
+.evaluate-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.evaluate-time {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.evaluate-r-content {
+    line-height: 22px;
+    color: rgb(51, 51, 51);
+}
+
+.all-evaluate {
+    width: 100%;
+    height: 42px;
+    display: inline-block;
+    text-align: center;
+    line-height: 42px;
+    color: rgb(102, 102, 102);
 }
 
 .green {
@@ -337,6 +430,144 @@ html {
 
 .blue {
     background-color: rgb(76, 195, 255);
+}
+
+.course-page {
+}
+
+.course-pagetop {
+    padding: 15px 10px;
+
+}
+
+.course-pagetopl {
+    width: 120px;
+    height: 60px;
+    float: left;
+}
+
+.course-pagetopl a img {
+    width: 120px;
+    height: 60px;
+}
+
+.course-pagetopr {
+    width: 225px;
+    height: 60px;
+    float: right;
+}
+
+.course-pagetoprtitle {
+    font-size: 15px;
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+}
+
+.course-pagetopradd {
+    font-size: 11px;
+    color: rgb(179, 179, 179);
+    line-height: 26px;
+}
+
+.course-pagetoprmoney {
+    height: 22px;
+}
+
+.course-pagetoprmoneyl {
+    font-size: 15px;
+    color: rgb(255, 76, 76);
+}
+
+.course-pagetoprmoneyr {
+    font-size: 12px;
+    color: rgb(140, 140, 140);
+    padding-left: 10px;
+
+}
+
+.course-pagebottom {
+    height: 42px;
+    border-top: 1px solid rgb(232, 232, 232);
+    padding-left: 10px;
+    line-height: 42px;
+    padding: 0 10px;
+}
+
+.course-pagebottoml {
+    float: left;
+    font-size: 13px;
+    color: rgb(112, 112, 112);
+}
+
+.course-pagebottomr {
+    float: right;
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+}
+
+.course-pagebottomrimg {
+    float: right;
+    width: 10px;
+    height: 12px;
+    margin-right: 8px;
+}
+
+.course-pagebottomrimg img {
+    width: 12px;
+    height: 12px;
+}
+
+.teacher {
+    width: 100%;
+    height: 93px;
+    background-color: white;
+    padding: 10px 10px;
+}
+
+.teacher-left {
+    float: left;
+    width: 50px;
+    height: 100px;
+}
+
+.teacher-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.teacher-right {
+    float: right;
+    width: 316px;
+    height: 100px;
+}
+
+.teacher-rname {
+    line-height: 30px;
+}
+
+.teacher-rnamel {
+    font-size: 15px;
+    color: rgb(51, 51, 51);
+}
+
+.teacher-rnamer {
+    font-size: 12px;
+    color: rgb(35, 205, 119);
+    margin-left: 4px;
+}
+
+.teacher-rschool,
+.teacher-rlevel {
+    font-size: 12px;
+    color: rgb(111, 111, 111);
+    line-height: 30px;
+}
+
+.teacher-rlevel img {
+    width: 11px;
+    height: 12px;
 }
 
 .clearfix:after {
