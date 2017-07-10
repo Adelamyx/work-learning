@@ -94,7 +94,7 @@ html {
     margin-left: 35px;
     text-align: center;
     color: rgb(102, 102, 102);
-    font-size: 12px;
+    font-size: 14px;
     line-height: 40px;
 }
 
@@ -105,7 +105,7 @@ html {
     margin-left: 35px;
     text-align: center;
     color: rgb(102, 102, 102);
-    font-size: 12px;
+    font-size: 14px;
     line-height: 40px;
     color: rgb(35, 205, 119);
     border-bottom: 1px solid #23cd77;
@@ -149,7 +149,7 @@ html {
 }
 
 .pagemain-hot-title {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 50px;
     padding-left: 58px;
 }
@@ -175,7 +175,7 @@ html {
 
 .pagemain-content-title {
     line-height: 30px;
-    font-size: 14px;
+    font-size: 15px;
 
 }
 
@@ -189,6 +189,7 @@ html {
     min-height: 26px;
     line-height: 26px;
     padding-right: 10px;
+    font-size: 14px;
 }
 
 .pagemain-content-greenword {
@@ -204,7 +205,7 @@ html {
 }
 
 .pagemain-content-word-span {
-    font-size: 15px;
+    font-size: 14px;
     color: rgb(102, 102, 102);
 }
 
@@ -655,7 +656,7 @@ html {
 
 .refer-rword {
     color: #ffffff;
-
+    font-size: 16px;
 }
 
 .refer-b {
@@ -692,4 +693,8 @@ html {
 
 .font-14 {
     font-size: 14px;
+}
+
+.font-16 {
+    font-size: 16px;
 }
