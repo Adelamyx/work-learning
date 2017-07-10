@@ -582,6 +582,7 @@ html {
 .env-content {
     width: 375px;
     padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .env-contrntl {
@@ -683,4 +684,12 @@ html {
     clear: both;
     content: ' ';
     visibility: hidden;
+}
+
+.font-15 {
+    font-size: 15px;
+}
+
+.font-14 {
+    font-size: 14px;
 }
