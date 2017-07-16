@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>displayflex</title>
+    <style>
+
+        html {
+            font-size: 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: normal;
+            font-size: 0.012rem;
+        }
+
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo1 {
+            display: flex;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .demo1 li {
+            flex: 1;
+            /*让所有弹性盒模型对象的子元素都有相同的长度，忽略它们内部的内容*/
+            background-color: pink;
+        }
+
+        .demo2 {
+            width: 350px;
+            height: 100px;
+            display: flex;
+        }
+
+        .demo2-content1 {
+            flex: 1;
+            display: flex;
+        }
+
+        .demo2-contenta {
+            width: 55px;
+        }
+
+        .demo2-contentb {
+            flex-grow: 1;
+        }
+
+        .demo2-contentc {
+            flex-grow: 3;
+        }
+
+        .organizationIntro {
+            margin: 0.3rem 0;
+            width: 100%;
+            display: flex;
+            border: 0.005rem solid #ccc; /*//efwfwe*/
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+        }
+
+        .oI-title {
+            margin: 0.1rem;
+            display: flex;
+        }
+
+        .oI-name {
+            font-size: 0.3rem;
+            line-height: 0.8rem;
+        }
+
+        .oI-name:before {
+            width: 0.08rem;
+            height: 0.3rem;
+            display: inline-block;
+            margin: 0.1rem 0.15rem -0.05rem 0;
+            border-radius: 0.04rem;
+            background-color: rgb(35, 205, 119);
+            content: "";
+        }
+
+        /*多行文字溢出点点点的3中实现方法*/
+        .content {
+            width: 200px;
+            font-size: 16px;
+            line-height: 20px;
+            word-break: break-all; /*根据盒子的宽度来截取文字*/
+            -webkit-line-clamp: 4; /*用来限制在一个块元素显示的文本的行数*/
+            display: -webkit-box; /*必须结合的属性，将对象作为弹性伸缩盒子模型显示*/
+            -webkit-box-orient: vertical; /*必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式*/
+            overflow: hidden; /*超过部分隐藏*/
+            max-height: 80px; /*是行高的行数的整数倍数*/
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+    <ul class="demo1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="demo2">
+        <div class="demo2-content1" style="background: pink;">
+            123
+        </div>
+        <div class="demo2-content1" style="background: rosybrown;">
+            <div class="demo2-contentb" style="background: bisque;">中</div>
+            <div class="demo2-contentc" style="background: blanchedalmond;">下</div>
+        </div>
+    </div>
+
+
+    <div class="organizationIntro">
+        <div class="oI-title">
+            <span class="oI-name">机构简介</span>
+        </div>
+
+    </div>
+
+    <div class="organizationIntro">
+        <div class="oI-title">
+            <span class="oI-name">机构简介</span>
+        </div>
+
+    </div>
+
+    <!--多行文字溢出点点点的3中实现方法-->
+    <!--HTML 字符实体    &yen;代表￥-->
+    <div class="content">
+        &yen;多行文字&yen;溢出&amp;点点点的3中实现方法,有些事情不是看到希望才去坚持，而是坚持了才看到希望。有些事情不是看到希望才去坚持，而是坚持了才看到希望有些事情不是看到希望才去坚持，而是坚持了才看到希望
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    //获取window的宽度
+    (function () {
+        var winwidth = 0;
+        window.onresize = function () {
+//            console.log(document.documentElement.getBoundingClientRect())
+            var docEle = document.documentElement;//获取html元素
+            winwidth = window.screen.availWidth;//屏幕的宽度
+            var fontsize = winwidth * 100 / 750 + "px";
+            docEle.style.fontSize = fontsize;
+
+            console.log(fontsize);
+        };
+    })();
+</script>
+</body>
+</html>

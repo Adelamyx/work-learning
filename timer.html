@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间格式</title>
+    <style type="text/css">
+        .timer {
+            width: 300px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+        }
+    </style>
+</head>
+<body>
+
+<div class="timer">
+    <time></time>
+</div>
+
+
+<script>
+    //不足10的补0
+    function Appendzero(obj) {
+        if (obj < 10) {
+            return ("0" + obj);
+        }
+        else return obj;
+    }
+
+    function $$dateFormat(t, formater) {
+        var time = new Date(t);
+        var year = time.getFullYear();
+        var month = Appendzero(time.getMonth() + 1);
+        var day = Appendzero(time.getDate());
+        var hours = Appendzero(time.getHours());
+        var minutes = Appendzero(time.getMinutes());
+        var seconds = Appendzero(time.getSeconds());
+        return formater.replace("YY", year).replace("MM", month).replace("DD", day).replace("hh", hours).replace("mm", minutes).replace("ss", seconds);
+    }
+
+    function inner() {
+        var times = new Date();
+        document.querySelector(".timer time").innerHTML = $$dateFormat(times, "YY.MM.DD.hh.mm.ss");
+    }
+    setInterval(inner, 1000);
+
+
+</script>
+</body>
+</html>
