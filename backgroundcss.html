@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background一些样式</title>
+    <style>
+        .demo1{
+            width: 600px;
+            height: 200px;
+            padding: 20px;
+            margin: 15px;
+            border:20px solid rgba(255,0,0,0.2);
+            background: url("./pics/img1.png")  no-repeat;
+            background-clip: content-box;
+
+        }
+        .facebook {
+            background: #3B5A98;
+            border: 20px solid rgba(134,134,134,0.3);
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+            width: 150px;
+            height: 65px;
+            line-height: 65px;
+            font: bold 25px Airal;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border-radius: 15px;
+            -moz-background-clip: padding;
+            -webkit-background-clip: padding-box;
+            -o-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+        .demo2{
+            height: 1000px;
+            width: 100px;
+            overflow: scroll;
+            border:1px solid #ccc;
+            margin-top: 20px;
+            overflow: auto;
+            background-image: url("./pics/img1.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+
+        .demo3{
+            width: 800px;
+            height: 400px;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            border:2px solid rgba(0,0,0,0.2);
+            overflow: hidden;
+            margin: 20px;
+        }
+        .demo4{
+            margin: 20px;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-clip: padding-box;
+            background-color: pink;
+            background-image: url("./pics/top-img.png") ;
+            background-size: auto;
+            background-repeat:no-repeat;
+            background-position: center center;
+            /*animation-iteration-count: infinite;            !*定义动画的播放次数。*!*/
+
+            position: relative;
+        }
+        .demo5{
+            animation: switchover 1s;
+            opacity: 0.5;
+            width: 600px;
+            height: 300px;
+        }
+        .demo6{
+            animation: switchover1 1s;
+            opacity: 1;
+            width: 300px;
+            height: 200px;
+        }
+        @keyframes switchover {
+            0% {
+                opacity: 1;
+                width: 300px;
+                height: 200px;
+            }
+            100% {
+                opacity: 0.5;
+                width: 600px;
+                height: 300px;
+            }
+        }
+        @keyframes switchover1 {
+            0% {
+                opacity: 0.5;
+                width: 600px;
+                height: 300px;
+            }
+            100% {
+                opacity: 1;
+                width: 300px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="demo3">
+    <div class="demo4"></div>
+</div>
+
+<div class="demo2">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>  <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>  <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>  <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>  <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+
+</div>
+
+<div class="demo1">demo1</div>
+<div class="facebook">你好! maomao</div>
+
+<script>
+    var demo4=document.querySelector(".demo4");
+    demo4.addEventListener("mouseover",function () {
+       demo4.classList.add("demo5");
+       demo4.classList.remove("demo6");
+
+    });
+    demo4.addEventListener("mouseout",function () {
+        demo4.classList.remove("demo5");
+        demo4.classList.add("demo6");
+    })
+</script>
+</body>
+</html>
