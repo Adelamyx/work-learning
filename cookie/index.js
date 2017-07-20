@@ -20,9 +20,9 @@
     }
 
     // 获取所有cookie的name和value值
-    function getcookiename() {
+    function getcookiename(name) {
         var cookies = document.cookie;//获取cookie所有的name和value值
-        var cookiesarray = cookies.split(";");//以"；"将获取的值 分割成字符串数组
+        var cookiesarray = cookies.split("; ");//以"；"将获取的值 分割成字符串数组
         var cookieslist = [];
         //将获取的值 放在数组对象中
         cookiesarray.forEach(function (item, index, array) {
@@ -31,14 +31,15 @@
                 value: (item.split("=")[1])
             });
         });
-        cookieslist.filter(function (item, index, array) {
-            if (item.name == name)
-                return item;
+        var nn = cookieslist.filter(function (item, index, array) {
+            return item.name === name;
         });
-        return cookieslist;
-
+        return nn;
     }
 
+    debugger
+
+    console.log(123456, getcookiename("mm4"));
     // 获取指定name的cookie value值
     function getCookievalue(name) {
         var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
@@ -99,9 +100,8 @@
     console.log(total);
 
 
-
     var a = "mm,22,aa,ss,dd";
-    var mmm = a.split(",").reduce(function (prev, next,index) {
+    var mmm = a.split(",").reduce(function (prev, next, index) {
         prev[index] = next;
         return prev;
     }, {});
