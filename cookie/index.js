@@ -31,10 +31,10 @@
                 value: (item.split("=")[1])
             });
         });
-        var nn = cookieslist.filter(function (item, index, array) {
+        var findname = cookieslist.filter(function (item, index, array) {
             return item.name === name;
         });
-        return nn;
+        return findname;
     }
 
     debugger
