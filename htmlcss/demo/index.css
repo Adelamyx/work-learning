@@ -1,4 +1,3 @@
-
 html {
     font-size: 62.5%;
 }
@@ -6,7 +5,6 @@ html {
 .content {
     margin: 0 auto;
     width: 375px;
-
 }
 
 .ielts-top-title {
@@ -39,7 +37,6 @@ html {
     margin-right: 10px;
     margin-top: 10px;
     color: #ffffff;
-
 }
 
 .ielts-top-span {
@@ -48,7 +45,6 @@ html {
     padding-top: 6px;
     display: inline-block;
     text-align: center;
-
 }
 
 .ielts-top-img {
@@ -84,7 +80,6 @@ html {
 
 .nav-title ul li {
     cursor: pointer;
-
 }
 
 .nav-title-li {
@@ -116,14 +111,15 @@ html {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: rgb(240, 240, 240);
-
 }
 
 .nav-content-div {
     width: 100%;
 }
 
+
 /*主页css*/
+
 .pagemain-hot {
     width: 100%;
     height: 50px;
@@ -145,7 +141,6 @@ html {
     line-height: 20px;
     text-align: center;
     color: #ffffff;
-
 }
 
 .pagemain-hot-title {
@@ -161,7 +156,6 @@ html {
     margin-bottom: 10px;
     padding-top: 10px;
     font-size: 14px;
-
 }
 
 .pagemain-content-l {
@@ -176,13 +170,11 @@ html {
 .pagemain-content-title {
     line-height: 30px;
     font-size: 15px;
-
 }
 
 .pagemain-content-int {
     padding-bottom: 10px;
     padding-left: 10px;
-
 }
 
 .pagemain-content-word {
@@ -202,6 +194,7 @@ html {
     line-height: 20px;
     text-align: center;
     color: rgb(35, 205, 119);
+    margin-right: 5px;
 }
 
 .pagemain-content-word-span {
@@ -215,7 +208,6 @@ html {
     line-height: 45px;
     padding-left: 10px;
     position: relative;
-
 }
 
 .pagemain-content-address a {
@@ -228,14 +220,12 @@ html {
     position: absolute;
     right: 0;
     top: 10px;
-
 }
 
 .pagemain-content-img {
     margin: 5px 0px;
     width: 356px;
     height: 178px;
-
 }
 
 .active {
@@ -318,7 +308,6 @@ html {
     position: absolute;
     right: 10px;
     top: 5px;
-
 }
 
 .offline-title {
@@ -388,7 +377,6 @@ html {
     width: 320px;
     float: right;
     padding: 0 10px;
-
 }
 
 .evaluate-r-top {
@@ -396,14 +384,12 @@ html {
     color: rgb(153, 153, 153);
     line-height: 20px;
     position: relative;
-
 }
 
 .evaluate-name {
     position: absolute;
     top: 0;
     left: 0;
-
 }
 
 .evaluate-time {
@@ -438,12 +424,10 @@ html {
     background-color: rgb(76, 195, 255);
 }
 
-.course-page {
-}
+.course-page {}
 
 .course-pagetop {
     padding: 15px 10px;
-
 }
 
 .course-pagetopl {
@@ -488,7 +472,6 @@ html {
     font-size: 12px;
     color: rgb(140, 140, 140);
     padding-left: 10px;
-
 }
 
 .course-pagebottom {

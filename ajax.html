@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax.html</title>
+</head>
+
+<body>
+    <div id="demo1">
+
+        <ul class="uls">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var demos = document.querySelector("#demo1");
+        var lis = document.querySelectorAll(".uls li");
+
+        var ajax = new XMLHttpRequest;
+        ajax.open('GET', "./school.json", true);
+        ajax.send();
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                var data = JSON.parse(ajax.responseText);
+                console.log(lis);
+                console.log(data);
+
+                lis.forEach(function (item, index, array) {
+                    item.innerHTML = data.head[index].word;
+                });
+                // console.log(Object.prototype.toString.call(JSON.parse(datas)));
+            }
+        }
+    </script>
+</body>
+
+</html>

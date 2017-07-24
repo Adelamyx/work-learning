@@ -1,0 +1,130 @@
+{
+    "head": [{
+            "id": 0,
+            "word": "访问",
+            "count": 780
+        },
+        {
+            "id": 1,
+            "word": "关注",
+            "count": 180
+        },
+        {
+            "id": 2,
+            "word": "评论",
+            "count": 58
+        }
+    ],
+    "hottitle": "《名校启动工作室》寒假班火热报名中！",
+    "organization": {
+        "title": "机构简介",
+        "qualification": {
+            "title": "资质：",
+            "content": "教育机构"
+        },
+        "character": {
+            "title": "特色：",
+            "content": [{
+                    "item": "双语教学"
+                },
+                {
+                    "item": "免费停车"
+                }
+            ]
+        },
+        "introduce": {
+            "title": "介绍：",
+            "content": "环球雅思少儿英语，最专业的少儿英语培训，环球雅思少儿英语，最专业的少儿英语培训"
+        },
+        "address": {
+            "title": "地址：",
+            "content": "南京市中山路311-2号"
+        }
+    },
+    "activity": {
+        "title": "活动资讯",
+        "content": [{
+                "id": 0,
+                "img": "/assets/img1.png",
+                "alt": "活动资讯图片1",
+                "title": "环球雅思少儿游乐会",
+                "advertisement": "欢迎大家参加这样的活动，带孩子一起玩"
+            },
+            {
+                "id": 1,
+                "img": "/assets/img1.png",
+                "alt": "活动资讯图片2",
+                "title": "环球雅思少儿游乐会,啦啦啦啦",
+                "advertisement": "欢迎大家参加这样的活动，带孩子一起玩"
+            }
+        ]
+    },
+    "onlinecourse": {
+        "title": "在线课程",
+        "content": [{
+                "id": 0,
+                "img": "/assets/img2.png",
+                "alt": "乖宝宝儿童游泳1",
+                "type": "视频课程",
+                "classhour": "30节课时",
+                "title": "乖宝宝儿童游泳",
+                "money": 1780,
+                "discount": 2800
+            },
+            {
+                "id": 1,
+                "img": "/assets/img2.png",
+                "alt": "宝宝学钢琴",
+                "type": "视频课程",
+                "classhour": "30节课时",
+                "title": "宝宝学钢琴",
+                "money": 8888,
+                "discount": 0
+            }
+        ]
+    },
+    "offlinecourse": {
+        "title": "线下课程",
+        "content": [{
+                "id": 0,
+                "img": "/assets/img3.png",
+                "alt": "舞蹈课程",
+                "address": "玄武区中山路185号",
+                "location": "1.8km",
+                "title": "舞蹈课程",
+                "money": 1780,
+                "discount": 0
+            },
+            {
+                "id": 1,
+                "img": "/assets/img4.png",
+                "alt": "宝宝学钢琴",
+                "address": "玄武区中山路185号",
+                "location": "1.8km",
+                "title": "宝宝学钢琴",
+                "money": 8888,
+                "discount": 0
+            }
+        ]
+    },
+    "userevaluate": {
+        "title": "用户评价",
+        "count": 11,
+        "content": [{
+                "id": 0,
+                "name": "美丽心情",
+                "headimg": "img/evaluateheadimg.png",
+                "evaluate": "老师讲课很认真，孩子听得也觉得能听懂，学习有明显的进步，今年数学考了80分，很好很好，谢谢老师的辛勤付出",
+                "time": "2小时前"
+            },
+            {
+                "id": 1,
+                "name": "美丽心情",
+                "headimg": "img/evaluateheadimg.png",
+                "evaluate": "老师讲课很认真，孩子听得也觉得能听懂，学习有明显的进步，今年数学考了80分，很好很好，谢谢老师的辛勤付出",
+                "time": "2小时前"
+            }
+        ]
+    }
+
+}
