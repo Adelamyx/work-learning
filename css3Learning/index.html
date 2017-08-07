@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3</title>
+    <style type="text/css">
+        .demo1 {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            position: relative;
+            animation-name: move;
+            animation-duration: 5s;
+            animation-delay: 2s;
+        }
+
+        @keyframes move {
+            0% {
+                background: pink;
+                left: 0;
+                right: 0;
+            }
+            25% {
+                background: yellow;
+                left: 200px;
+                top: 0px;
+            }
+            50% {
+                background: blue;
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                background: green;
+                left: 0px;
+                top: 200px;
+            }
+            100% {
+                background: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo1">demo1</div>
+</body>
+
+</html>
