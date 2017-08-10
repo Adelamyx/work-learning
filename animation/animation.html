@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        h2 {
+            opacity: 0;
+        }
+
+        .demo1 {
+            width: 300px;
+            height: 26px;
+            line-height: 26px;
+            margin: 0 auto;
+        }
+
+        .demo1 ul {
+            display: flex;
+        }
+
+        .demo1 ul li {
+            flex: 1;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .demo1 ul li:hover {
+            color: palevioletred;
+        }
+
+        .content {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .content-item {
+            width: 100%;
+            border: 3px solid pink;
+            border-radius: 16px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .itemul {
+            display: flex;
+        }
+
+        .itemul li {
+            flex: 1;
+            text-align: center;
+        }
+
+        .demo2 {
+            height: 30px;
+            width: 300px;
+            position: relative;
+        }
+
+        .demo2 ul {
+            display: flex;
+        }
+
+        .demo2 .ul li {
+            flex: 1;
+            height: 30px;
+            cursor: pointer;
+            overflow: hidden;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .item {
+            position: absolute;
+            background-color: pink;
+            color: white;
+            top: 20px;
+            left: 0;
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            border: 2px solid palevioletred;
+            border-radius: 10px;
+            opacity: 0;
+            text-align: left;
+            z-index: -10;
+            display: flex;
+        }
+
+        .item a {
+            flex:1;
+            text-align: center;
+        }
+
+        .demo3 {
+            /* background-color: pink;
+            height: 100px; */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: none;
+                z-index: -10
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 10px, 0);
+                z-index: 10
+            }
+        }
+
+        .In {
+            /*规定动画完成一个周期所花费的秒或毫秒。默认是 0。*/
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            /* 规定动画被播放的次数。默认是 1。 */
+            /* animation-iteration-count: infinite;     */
+            animation-name: fadeIn;
+        }
+
+        .pinkcolor {
+            color: palevioletred;
+        }
+        .item-a:hover {
+            color: yellow;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="./animate.css"> -->
+</head>
+
+<body>
+
+    <div class="demo1">
+        <ul class="uls">
+            <li>关于孩子王</li>
+            <li>新闻动态</li>
+            <li>服务及活动</li>
+        </ul>
+        <div class="content">
+            <div class="content-item">
+                <ul class="itemul">
+                    <li>企业介绍</li>
+                    <li>企业文化</li>
+                    <li>商业模式</li>
+                </ul>
+            </div>
+            <div class="content-item">2</div>
+            <div class="content-item">3</div>
+        </div>
+    </div>
+
+    <h2 id="animate" class="">Animate.css</h2>
+
+    <div class="demo2">
+        <ul class="ul">
+            <li>
+                <a>关于孩子王</a>
+                <div class="item">
+                    <a class="item-a">企业介绍</a>
+                    <a class="item-a">企业文化</a>
+                    <a class="item-a">企业文化</a>
+                </div>
+            </li>
+            <li>
+                <a>新闻动态</a>
+                <div class="item">
+                    <a class="item-a">新闻报道</a>
+                    <a class="item-a">大事记</a>
+                </div>
+            </li>
+            <li>
+                <a>服务及活动</a>
+                <div class="item">
+                    <a class="item-a">服务品牌</a>
+                    <a class="item-a">品牌活动</a>
+                    <a class="item-a">会员活动</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="demo3">
+
+    </div>
+    <script>
+        var lis = document.querySelectorAll(".uls li");
+        var divs = document.querySelectorAll(".content-item");
+        var animate = document.querySelector("#animate");
+        document.querySelector('.demo1').addEventListener('mouseout', (e) => {
+            // e.stopPropagation();
+            divs.forEach(item => {
+                item.classList.remove("In");
+            })
+        })
+        lis[0].addEventListener("mouseover", function () {
+            animate.classList.add("In");
+        })
+        lis.forEach((item, index, array) => {
+            item.addEventListener("mouseover", function () {
+                divs.forEach(item => {
+                    item.classList.remove("In");
+                })
+                divs[index].classList.add("In");
+            })
+        })
+
+        var lists = document.querySelectorAll(".demo2 .ul>li");
+        lists.forEach((item, index, array) => {
+            item.addEventListener("mouseover", function () {
+                lists.forEach(item => {
+                    item.querySelector("a").classList.remove("pinkcolor");
+                    item.querySelector(".item").classList.remove("In");
+                })
+                item.querySelector("a").classList.add("pinkcolor");
+                item.querySelector(".item").classList.add("In");
+            });
+        })
+        lists.forEach((item, index, array) => {
+            item.addEventListener("mouseout", function () {
+                lists.forEach(item => {
+                    item.querySelector("a").classList.remove("pinkcolor");                    
+                    item.querySelector(".item").classList.remove("In");
+                })
+            });
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    width: 750px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.item {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.point {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    right: left;
+    background: linear-gradient(to top, rgba(0, 0, 0, .4), transparent);
+}
+
+.point-content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.point-content span {
+    flex: 1;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: white;
+    color: #cfcfcf;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.show {
+    animation-name: show;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.point-active {
+    color: pink !important;
+}

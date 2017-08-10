@@ -1,157 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>String题目</title>
 </head>
+
 <body>
 
-<script type="text/javascript">
-    //作业一：判断一个字符串中出现次数最多的字符，统计这个次数
-    //新建空对象，每次循环向对象中加入未存在的key，value=1；若存在就将value++；
-    var str1 = "abcabcbbcbbd";
-    var obj = {};
-    for (var i = 0, l = str1.length; i < l; i++) {
-        var key = str1[i];
+    <script type="text/javascript">
+        //作业一：判断一个字符串中出现次数最多的字符，统计这个次数
+        //新建空对象，每次循环向对象中加入未存在的key，value=1；若存在就将value++；
+        var str1 = "abcabcbbcbbd";
+        var obj = {};
+        for (var i = 0, l = str1.length; i < l; i++) {
+            var key = str1[i];
 
-        if (!obj[key]) {
-            obj[key] = 1;
-        } else {
-            obj[key]++;
-        }
-    }
-
-    function max(objs) {
-        var max_key = "";
-        var maxcount = 0;
-        for (key in objs) {
-            if (maxcount < objs[key]) {
-                maxcount = objs[key];
-                max_key = key;
+            if (!obj[key]) {
+                obj[key] = 1;
+            } else {
+                obj[key]++;
             }
         }
-        return "该字符串中出现次数最多的字符为：" + max_key + ",个数：" + maxcount;
-    }
-    console.log(max(obj));
-    //答案：该字符串中出现次数最多的字符为：b,个数：6
 
-
-    //作业一：判断一个字符串中出现次数最多的字符，统计这个次数
-    //将字符串转化为数组，用foreach遍历转变后的数组，遍历新的item存放到obj中，并改变value=1；若item已存在就将value++;
-    var str1 = "abcabcbbcbbd";
-    var obj = {};
-    b = str1.split("");//将字符串str1转化为数组b,可以使用foreach使用遍历
-
-    b.forEach(function (item, index, array) {
-        var key = item;
-        if (!obj[key]) {
-            obj[key] = 1;
-        } else {
-            obj[key]++;
-        }
-    });
-
-    function max(objs) {
-        var max_key = "";
-        var maxcount = 0;
-        for (key in objs) {
-            if (maxcount < objs[key]) {
-                maxcount = objs[key];
-                max_key = key;
+        function max(objs) {
+            var max_key = "";
+            var maxcount = 0;
+            for (key in objs) {
+                if (maxcount < objs[key]) {
+                    maxcount = objs[key];
+                    max_key = key;
+                }
             }
+            return "该字符串中出现次数最多的字符为：" + max_key + ",个数：" + maxcount;
         }
-        return "该字符串中出现次数最多的字符为：" + max_key + ",个数：" + maxcount;
-    }
-    console.log(max(obj));
+        console.log(max(obj));
+        //答案：该字符串中出现次数最多的字符为：b,个数：6
 
 
-    //作业二：判断字符串是否是这样组成的，第一个必须是字母，后面可以是字母、数字、下划线，总长度为5-20
-    //test() 方法用于检测一个字符串是否匹配某个模式.
+        //作业一：判断一个字符串中出现次数最多的字符，统计这个次数
+        //将字符串转化为数组，用foreach遍历转变后的数组，遍历新的item存放到obj中，并改变value=1；若item已存在就将value++;
+        var str1 = "abcabcbbcbbd";
+        var obj = {};
+        b = str1.split(""); //将字符串str1转化为数组b,可以使用foreach使用遍历
 
-    var str2 = "a_sss222333";
-    var reg = /^[a-zA-z][a-zA-z_0-9]{4,19}$/;
-    console.log(reg.test(str2));
+        b.forEach(function (item, index, array) {
+            var key = item;
+            if (!obj[key]) {
+                obj[key] = 1;
+            } else {
+                obj[key]++;
+            }
+        });
 
-    //答案：true
-
-
-    //作业三：截取字符串abcdefg的efg
-
-    var str3 = "abcdefg333";
-
-    console.log(str3.substr(str3.indexOf("e"), 3));
-    console.log(str3.substring(str3.indexOf("e"), (str3.indexOf("g") + 1)));
-
-
-    //答案：efg
-
-
-    //作业四：反转字符串
-
-    var str4 = "abcdefg1234";
-    str4 = str4.split("").reverse().join("");
-    console.log(str4);
-
-    //答案：4321gfedcba
-
-    //作业五：删除字符串中所有的数字
-    //isNaN() 函数用于检查其参数是否是非数字值。isNaN(x)。
-    //如果 x 是特殊的非数字值 NaN（或者能被转换为这样的值），返回的值就是 true。如果 x 是其他值,则返回 false。
-
-
-    var str5 = "a1b2c3d4e5f6";
-    var c = str5.split("");
-    var arr = [];
-    c.forEach(function (item, index, array) {
-        if (isNaN(item)) {
-            arr.push(item);
+        function max(objs) {
+            var max_key = "";
+            var maxcount = 0;
+            for (key in objs) {
+                if (maxcount < objs[key]) {
+                    maxcount = objs[key];
+                    max_key = key;
+                }
+            }
+            return "该字符串中出现次数最多的字符为：" + max_key + ",个数：" + maxcount;
         }
-    });
-    console.log("删除数字后的数组为：", arr);
-    console.log("删除数字后的字符串为:", str5 = arr.join(""));
+        console.log(max(obj));
 
 
-    //作业六：将字符串中 _ 后面的第一个小写字母变大写，并且删除 _
+        //作业二：判断字符串是否是这样组成的，第一个必须是字母，后面可以是字母、数字、下划线，总长度为5-20
+        //test() 方法用于检测一个字符串是否匹配某个模式.
 
-    var str6 = "_a_abc_abc_acd_12_3abc";
+        var str2 = "a_sss222333";
+        var reg = /^[a-zA-z][a-zA-z_0-9]{4,19}$/;
+        console.log(reg.test(str2));
 
-    //首字母大写
-    function firstLetterToUpperCase(str) {
-        var res;
-        if (typeof str === 'string') {
-            res = str.charAt(0).toUpperCase() + str.substr(1);
-        } else {
-            res = str;
+        //答案：true
+
+
+        //作业三：截取字符串abcdefg的efg
+
+        var str3 = "abcdefg333";
+
+        console.log(str3.substr(str3.indexOf("e"), 3));
+        console.log(str3.substring(str3.indexOf("e"), (str3.indexOf("g") + 1)));
+
+
+        //答案：efg
+
+
+        //作业四：反转字符串
+
+        var str4 = "abcdefg1234";
+        str4 = str4.split("").reverse().join("");
+        console.log(str4);
+
+        //答案：4321gfedcba
+
+        //作业五：删除字符串中所有的数字
+        //isNaN() 函数用于检查其参数是否是非数字值。isNaN(x)。
+        //如果 x 是特殊的非数字值 NaN（或者能被转换为这样的值），返回的值就是 true。如果 x 是其他值,则返回 false。
+
+
+        var str5 = "a1b2c3d4e5f6";
+        var c = str5.split("");
+        var arr = [];
+        c.forEach(function (item, index, array) {
+            if (isNaN(item)) {
+                arr.push(item);
+            }
+        });
+        console.log("删除数字后的数组为：", arr);
+        console.log("删除数字后的字符串为:", str5 = arr.join(""));
+
+
+        //作业六：将字符串中 _ 后面的第一个小写字母变大写，并且删除 _
+
+        var str6 = "_a_abc_abc_acd_12_3abc";
+
+        //首字母大写
+        function firstLetterToUpperCase(str) {
+            var res;
+            if (typeof str === 'string') {
+                res = str.charAt(0).toUpperCase() + str.substr(1);
+            } else {
+                res = str;
+            }
+            return res;
         }
-        return res;
-    }
 
-    function toCamelStyle(str) {
-        var res;
-        if (typeof str === 'string') {
-            var isFisrstLetterUnderscore = str.charAt(0) === '_';
-            var wordArr;
-            wordArr = str.split('_');
-            wordArr = wordArr.map(function (word, index) {
-                return index === 0 ? word : firstLetterToUpperCase(word);
+        function toCamelStyle(str) {
+            var res;
+            if (typeof str === 'string') {
+                var isFisrstLetterUnderscore = str.charAt(0) === '_';
+                var wordArr;
+                wordArr = str.split('_');
+                wordArr = wordArr.map(function (word, index) {
+                    return index === 0 ? word : firstLetterToUpperCase(word);
+                });
+                res = wordArr.join('');
+                if (isFisrstLetterUnderscore) {
+                    res = res.charAt(0).toUpperCase() + res.substr(1);
+                }
+            } else {
+                res = str;
+            }
+            return res;
+        }
+
+        console.log(toCamelStyle(str6));
+        //答案：AAbcAbcAcd123abc
+
+
+
+        //删除字符串中所有的数字
+
+        var strnum11 = "123abc2m"
+
+        function deletnum(str) {
+            var newstr = str.split("").filter((item, index, array) => {
+                return isNaN(item)
             });
-            res = wordArr.join('');
-            if (isFisrstLetterUnderscore) {
-                res = res.charAt(0).toUpperCase() + res.substr(1);
-            }
-        } else {
-            res = str;
+            return newstr.join("");
         }
-        return res;
-    }
+        console.log(deletnum(strnum11));
 
-    console.log(toCamelStyle(str6));
-    //答案：AAbcAbcAcd123abc
+        //字符串中出现次数最多的字符
+        var str12 = "123aaabbbcabbbbc"
+        var objmm = {};
+        str12.split("").forEach((item, index, array) => {
+            if (!objmm[item]) {
+                objmm[item] = 1;
+            } else {
+                objmm[item]++;
+            }
+        })
+        function max(objs) {
+            var maxobj = '';
+            var maxcount = '';
+            for (key in objs) {
+                if (objs[key] > maxcount) {
+                    maxobj = key;
+                    maxcount = objs[key];
+                }
+            }
+            return "最多次数的字符："+maxobj+"为："+maxcount;
+        }
+        console.log(max(objmm));
 
-
-
-
-</script>
+        
+        // 输入两个字符串，从第一个字符串中删除第二个字符串中的所有字符串不可以使用replace    
+        var str14="abcdefg";
+        var str15="acn";
+        function replacess(str1,str2){
+            return str1.split('').filter(item => {return str2.indexOf(item) === -1});
+        }  
+        console.log(replacess(str14,str15).join(""));  
+    </script>
 
 </body>
+
 </html>

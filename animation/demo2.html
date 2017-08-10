@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击出现</title>
+    <link href="./css/demo2.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bottom">
+        <div class="animation">
+            <span class="spanitem"></span>
+            <div class="bottom-content"></div>
+        </div>
+    </div>
+    <script>
+        var spanitem = document.querySelector(".spanitem");
+        var bottomcontent = document.querySelector(".bottom-content"); 
+        var animation = document.querySelector(".animation");
+        var animationclass = animation.className.split(" ");
+        spanitem.addEventListener("click", function () {
+            animationclass = animation.className.split(" ");
+            if (animationclass.length === 1 ) {
+                animation.classList.add("In");
+                // spanitem.classList.add("spanitem-in");
+                // bottomcontent.classList.add("spanitem-in");
+            } else if (animationclass[1] === "In") {
+                animation.classList.remove("In");
+                // spanitem.classList.remove("spanitem-in");
+                // bottomcontent.classList.remove("spanitem-in");
+                animation.classList.add("out");
+                // spanitem.classList.add("spanitem-out");
+                // bottomcontent.classList.add("spanitem-out");
+            } else if (animationclass[1] === "out"){
+                animation.classList.remove("out");
+                animation.classList.add("In");
+                // spanitem.classList.remove("spanitem-out");
+                // bottomcontent.classList.remove("spanitem-out");
+                // spanitem.classList.add("spanitem-in");
+                // bottomcontent.classList.add("spanitem-in");
+            }
+        })
+    </script>
+</body>
+
+</html>

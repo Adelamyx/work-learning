@@ -1,0 +1,109 @@
+.bottom {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.spanitem {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    background-color: rgba(228, 0, 127, .6);
+    width: 128px;
+    height: 20px;
+    border-radius: 20px 20px 0 0;
+    cursor: pointer;
+}
+
+.bottom-content {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background-color: rgba(228, 0, 127, .6);
+}
+
+@keyframes panitem-in {
+    from {
+         background-color: rgba(228, 0, 127, .6); 
+         /* background-color: red;  */
+        
+    }
+    to {
+         /* background-color: yellow;  */
+         background-color: rgba(228, 0, 127, .4); 
+    }
+}
+
+.In>span,
+.In>div {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: panitem-in;
+}
+
+@keyframes spanitem-out {
+    from {
+        background-color: rgba(228, 0, 127, .4);
+        /* background-color: red; */
+    }
+    to {
+        /* background-color: yellow; */
+        background-color: rgba(228, 0, 127, .6);
+    }
+}
+
+.out>span,
+.out>div {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: spanitem-out;
+}
+
+@keyframes out {
+    from {
+        transform: translate3d(0, -175px, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.out {
+    /*规定动画完成一个周期所花费的秒或毫秒。默认是 0。*/
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    /* 规定动画被播放的次数。默认是 1。 */
+    /* animation-iteration-count: infinite;     */
+    animation-name: out;
+}
+
+@keyframes In {
+    from {
+        transform: none;
+    }
+    to {
+        transform: translate3d(0, -175px, 0);
+    }
+}
+
+.In {
+    /*规定动画完成一个周期所花费的秒或毫秒。默认是 0。*/
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    /* 规定动画被播放的次数。默认是 1。 */
+    /* animation-iteration-count: infinite;     */
+    animation-name: In;
+}
+
+.animation {
+    position: absolute;
+    top: 175px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+}

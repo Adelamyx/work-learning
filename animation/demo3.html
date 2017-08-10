@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片播放--加入动画了</title>
+    <link href="./css/demo3.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="content">
+        <ul>
+            <li class="item"><img src="./img/banner.jpg"></li>
+            <li class="item"><img src="./img/test_img01.jpg"></li>
+            <li class="item"><img src="./img/test_img02.jpg"></li>
+        </ul>
+        <div class="point">
+            <div class="point-content">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var lists = document.querySelectorAll(".content li");
+    var points = document.querySelectorAll(".point-content span");
+
+    //  播放
+    function palyimg(index) {
+        lists.forEach(item => {
+            item.classList.remove("show");
+        })
+        points.forEach(item => {
+            item.classList.remove("point-active");
+        })
+        lists[index].classList.add("show");
+        points[index].classList.add("point-active");
+    }
+
+    var $$index = 0;
+    palyimg($$index);
+
+    //  自动播放
+    function autoplay() {
+        if (++($$index) >= lists.length)
+            $$index = 0;
+        palyimg($$index);
+    }
+
+    var $$timer = setInterval(function () {
+        autoplay();
+    }, 2000);
+
+    points.forEach((item, index, array) => {
+        item.addEventListener("mouseover", function () {
+            clearInterval($$timer); //清除定时器
+            lists.forEach(item => {
+                item.classList.remove("show");
+            })
+            points.forEach(item => {
+                item.classList.remove("point-active");
+            })
+            $$index = index;
+            lists[$$index].classList.add("show");
+            points[$$index].classList.add("point-active");
+        })
+        item.addEventListener("mouseout", function () {        
+            //设置定时器
+            $$timer = setInterval(function () {
+                autoplay();
+            }, 3000);
+        })
+    });
+</script>
+
+</html>
