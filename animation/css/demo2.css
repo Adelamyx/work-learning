@@ -16,6 +16,7 @@
     height: 20px;
     border-radius: 20px 20px 0 0;
     cursor: pointer;
+    margin-left: -64px;
 }
 
 .bottom-content {
@@ -29,13 +30,13 @@
 
 @keyframes panitem-in {
     from {
-         background-color: rgba(228, 0, 127, .6); 
+         background-color: rgba(228, 0, 127, .6);
          /* background-color: red;  */
-        
+
     }
     to {
          /* background-color: yellow;  */
-         background-color: rgba(228, 0, 127, .4); 
+         background-color: rgba(228, 0, 127, .4);
     }
 }
 

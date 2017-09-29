@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图--左右切换--js控制速度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 40px;
+            display: none;
+        }
+
+        #container {
+            width: 750px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #list {
+            width: 3750px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+        }
+
+        #list a {
+            width: 750px;
+            height: 300px;
+            display: inline-block;
+            text-align: center;
+            font-size: 22px;
+            float: left;
+            color: #fff;
+        }
+
+        #buttons {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            z-index: 9;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+        }
+
+        #buttons span {
+            display: inline-block;
+            cursor: pointer;
+            width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            background: #2a2a2a
+        }
+
+        #prev {
+            width: 40px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            position: absolute;
+            margin-top: -40px;
+            background: rgba(0, 0, 0, 0.5);
+            left: 0px;
+            top: 50%;
+            cursor: pointer;
+        }
+
+        #next {
+            width: 40px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            position: absolute;
+            margin-top: -40px;
+            background: rgba(0, 0, 0, 0.5);
+            right: 0px;
+            top: 50%;
+            cursor: pointer;
+        }
+
+        #container .on {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="list" style="left:-750px">
+            <a><img src="./img/test_img02.jpg"></a>
+            <a><img src="./img/banner.jpg"></a>
+            <a><img src="./img/test_img01.jpg">121212</a>
+            <a><img src="./img/test_img02.jpg"></a>
+            <a><img src="./img/banner.jpg"></a>
+        </div>
+        <div id="buttons">
+            <span index="1" class="on"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+        </div>
+        <a id="prev" href="javascript:;" rel="external nofollow" rel="external nofollow">&lt;</a>
+        <a id="next" href="javascript:;" rel="external nofollow" rel="external nofollow">&gt;</a>
+    </div>
+    <script>
+        var container = document.querySelector('#container'),
+            list = document.querySelector('#list'),
+            buttons = document.querySelectorAll('#buttons span'),
+            prev = document.querySelector('#prev'),
+            next = document.querySelector('#next'),
+            index = 1, //初始index值
+            len = 3, //图片长度
+            interval = 3000, //触发时间
+            animated = false,
+            timer;
+
+        function animate(offset) {
+            if (offset == 0) return;
+            animated = true;
+            var time = 500, // 总时间
+                inter = 5, // 时间间隔
+                speed = offset / (time / inter), // 每次偏移量
+                left = parseInt(list.style.left) + offset; // 最终的偏移量
+            var go = function () {
+                // 点击前一个，speed>0,当前现在的偏移量<最终偏移量
+                // 点击后一个，speed<0,当前现在的偏移量>最终偏移量  
+                if ((speed > 0 && parseInt(list.style.left) < left) || (speed < 0 && parseInt(list.style.left) >
+                        left)) {
+                    list.style.left = parseInt(list.style.left) + speed + 'px'; // 每次偏移后的值
+                    setTimeout(go, inter);
+                } else {
+                    list.style.left = left + 'px';
+                    if (left > -750) {
+                        list.style.left = -750 * len + 'px';
+                    }
+                    if (left < (-750 * len)) {
+                        list.style.left = '-750px'
+                    }
+                    animated = false;
+                }
+            }
+            go();
+        }
+
+        function showButton() {
+            buttons.forEach(item =>{
+                item.classList.remove("on");
+            })
+            buttons[index - 1].classList.add("on");
+        }
+
+        function play() {
+            timer = setTimeout(function () {
+                next.onclick();
+                play();
+            }, interval);
+        }
+
+        function stop() {
+            clearTimeout(timer);
+        }
+        // 下一个
+        next.onclick = function () {
+            if (animated) {
+                return;
+            }
+            if (index == 3) {
+                index = 1;
+            } else {
+                index++;
+            }
+            animate(-750);
+            showButton();
+        }
+        // 上一个
+        prev.onclick = function () {
+            if (animated) {
+                return;
+            }
+            if (index == 1) {
+                index = 3;
+            } else {
+                index--;
+            }
+            animate(750);
+            showButton();
+        }
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = function () {
+                if (animated) {
+                    return;
+                }
+                if (this.className == 'on') {
+                    return;
+                }
+                var myIndex = parseInt(this.getAttribute('index'));
+                var offset = -750 * (myIndex - index);
+                animate(offset);
+                index = myIndex;
+                showButton();
+            }
+        }
+        container.onmouseover = function () {
+            prev.style.display = next.style.display = 'block';
+            stop();
+        }
+        container.onmouseout = function () {
+            prev.style.display = next.style.display = 'none';
+            play();
+        }
+        play();
+    </script>
+</body>
+
+</html>

@@ -18,9 +18,9 @@
         </ul>
         <div class="point">
             <div class="point-content">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
+                <span class="">1</span>
+                <span class="">2</span>
+                <span class="">3</span>
             </div>
         </div>
     </div>
@@ -30,15 +30,14 @@
     var points = document.querySelectorAll(".point-content span");
 
     //  播放
-    function palyimg(index) {
-        lists.forEach(item => {
+    function palyimg(indexs) {
+        lists.forEach((item,index) => {
             item.classList.remove("show");
+            points[index].classList.remove("point-active");
         })
-        points.forEach(item => {
-            item.classList.remove("point-active");
-        })
-        lists[index].classList.add("show");
-        points[index].classList.add("point-active");
+
+        lists[indexs].classList.add("show");
+        points[indexs].classList.add("point-active");
     }
 
     var $$index = 0;
@@ -55,16 +54,14 @@
         autoplay();
     }, 2000);
 
-    points.forEach((item, index, array) => {
+    points.forEach((item, indexs, array) => {
         item.addEventListener("mouseover", function () {
             clearInterval($$timer); //清除定时器
-            lists.forEach(item => {
+            lists.forEach((item,index) => {
                 item.classList.remove("show");
+                points[index].classList.remove("point-active");
             })
-            points.forEach(item => {
-                item.classList.remove("point-active");
-            })
-            $$index = index;
+            $$index = indexs;
             lists[$$index].classList.add("show");
             points[$$index].classList.add("point-active");
         })
@@ -72,7 +69,7 @@
             //设置定时器
             $$timer = setInterval(function () {
                 autoplay();
-            }, 3000);
+            }, 2000);
         })
     });
 </script>

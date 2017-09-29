@@ -12,3 +12,13 @@
 </li>
 </ul>
 
+
+* querySelector() 和 querySelectAll()
+* addEventListener() 和 removeEventListener()
+* string.split()和array.join()
+
+string.split()和array.join()
+
+string.split()和array.join()
+
+string.split()和array.join()

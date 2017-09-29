@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片播放--加入动画了--左右划</title>
+    <link href="./css/demo5.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="content">
+        <ul class="uls">
+            <li class="item"><img src="./img/test_img02.jpg"></li>
+            <li class="item"><img src="./img/banner.jpg"></li>
+            <li class="item"><img src="./img/test_img01.jpg"></li>
+            <li class="item"><img src="./img/test_img02.jpg"></li>
+            <li class="item"><img src="./img/banner.jpg"></li>
+        </ul>
+        <span class="prev">&lt;</span>
+        <span class="next">&gt;</span>
+        <div class="point">
+            <div class="point-content">
+                <span class="point-item" item-index="1">1</span>
+                <span class="point-item" item-index="2">2</span>
+                <span class="point-item" item-index="3">3</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    (function () {
+        var content = document.querySelector(".content");
+        var lists = document.querySelectorAll(".content li");
+        var points = document.querySelectorAll(".point-content span");
+        var uls = document.querySelector(".uls");
+        var prev = document.querySelector(".prev");
+        var next = document.querySelector(".next");
+        var timer;
+        var len = 3;
+        uls.style.left = "-100%"; //设置left
+        uls.style.width = (100 * len) + "%"; //设置全部图片宽度
+        var index = 0;
+        next.onclick = function () {
+            var left = uls.style.left;
+            stop();
+            index++;
+            if (index < len + 1) {
+                uls.style.left = (parseInt(left) - 100) + "%"; //当还没到最后一张图片时left减100%
+            } else {
+                uls.style.left = "-100%";
+                // 最后一张时， 点击按钮跳到第一张
+                index = 0;
+            }
+        };
+        prev.onclick = function () {
+            var left = uls.style.left;
+            stop();
+            index--;
+            if (index > -1) {
+                uls.style.left = (parseInt(left) + 100) + "%"; //不是第一张时left加100%
+            } else {
+                uls.style.left = "-300%"; //第一张时，点击按钮跳到最后一张
+                index = len;
+            }
+        };
+
+        function play() {
+            timer = setInterval(function () {
+                next.onclick();
+                play();
+            }, 2000);
+        }
+        function stop() {
+            clearTimeout(timer);
+        }
+        content.onmouseover = function () {
+            stop();
+            console.log(11);
+        }
+        content.onmouseout = function () {
+            play();
+            console.log(22);
+            
+        }
+        play();
+    }());
+</script>
+
+</html>

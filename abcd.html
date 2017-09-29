@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <td>100</td>
+      <td>200</td>
+      <td><button>ceshi1</button></td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>200</td>
+      <td><button class="bu">ceshi2</button></td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>200</td>
+      <td><button>ceshi3</button></td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript">
+  var button = document.querySelector(".bu");
+  console.log(button.parentNode.parentNode)
+</script>
+</html>

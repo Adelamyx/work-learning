@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片播放--加入动画了--事件委托target</title>
+    <link href="./css/demo4.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="content">
+        <ul>
+            <li class="item"><img src="./img/banner.jpg"></li>
+            <li class="item"><img src="./img/test_img01.jpg"></li>
+            <li class="item"><img src="./img/test_img02.jpg"></li>
+        </ul>
+        <div class="point">
+            <div class="point-content">
+                <span class="point-item" data-index="0">1</span>
+                <span class="point-item">2</span>
+                <span class="point-item">3</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var lists = document.querySelectorAll(".content li");
+    var points = document.querySelectorAll(".point-content span");
+    var content = document.querySelector(".content");
+
+    //  播放
+    function palyimg(indexs) {
+        lists.forEach((item, index) => {
+            item.classList.remove("show");
+            points[index].classList.remove("point-active");
+        })
+        lists[indexs].classList.add("show");
+        points[indexs].classList.add("point-active");
+    }
+
+    var nowindex = 0;
+    palyimg(nowindex);
+
+    //  自动播放
+    function autoplay() {
+        if (++(nowindex) >= lists.length)
+            nowindex = 0;
+        palyimg(nowindex);
+    }
+
+    var timer = setInterval(function () {
+        autoplay();
+    }, 2000);
+
+    // points.forEach((item, indexs, array) => {
+    //     item.addEventListener("mouseover", function () {
+    //         clearInterval($$timer); //清除定时器
+    //         lists.forEach((item, index) => {
+    //             item.classList.remove("show");
+    //             points[index].classList.remove("point-active");
+    //         })
+    //         $$index = indexs;
+    //         lists[$$index].classList.add("show");
+    //         points[$$index].classList.add("point-active");
+    //     })
+    //     item.addEventListener("mouseout", function () {
+    //         //设置定时器
+    //         $$timer = setInterval(function () {
+    //             autoplay();
+    //         }, 2000);
+    //     })
+    // });
+
+    content.addEventListener("mouseover", function (e) {
+        clearInterval(timer); //清除定时器
+        if (e.target && e.target.className === "point-item") {
+            lists[nowindex].classList.remove("show");
+            points[nowindex].classList.remove("point-active");
+            // console.log(e.target.className);
+            // console.log('33')
+            e.target.classList.add("point-active");
+            nowindex = e.target.innerText - 1;
+            lists[nowindex].classList.add("show");
+        }
+    })
+    content.addEventListener("mouseout", function (e) {
+        timer = setInterval(function () {
+            autoplay();
+        }, 2000);
+    })
+</script>
+
+</html>
