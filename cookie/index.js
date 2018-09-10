@@ -16,7 +16,7 @@
         var Days = 30;
         var time = new Date()
         time.setTime(time.getTime() + Days * 24 * 60 * 60 * 1000);//设置到期时间
-        document.cookie = name + "=" + escape(value) + ";expires=" + time.toGMTString() + "domain=.cekid.com;path=/";
+        document.cookie = name + "=" + escape(value) + ";expires=" + time.toGMTString() + "domain=.adelacoco.com;path=/";
     }
 
     // 获取所有cookie的name和value值
