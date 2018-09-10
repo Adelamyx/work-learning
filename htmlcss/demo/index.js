@@ -61,7 +61,7 @@
             //在线课程
             var item = "";
             for (var i = 0; i < data.onlinecourse.content.length; i++) {
-                img = '<a href="http://www.haiziwang.com/"><img src="' + data.onlinecourse.content[i].img + '" alt="课程"></a>';
+                img = '<a href="http://www.baidu.com/"><img src="' + data.onlinecourse.content[i].img + '" alt="课程"></a>';
                 course = '<div class="course-online"><a href="" class="online-title">' + data.onlinecourse.content[i].type + '</a><a href="" class="online-num">' + data.onlinecourse.content[i].classhour + '</a></div>';
                 if (data.onlinecourse.content[i].discount != 0) {
                     money = '<div><span class="course-title">' + data.onlinecourse.content[i].title + '</span><span class="course-discount">' + data.onlinecourse.content[i].discount + '</span><span class="course-price">' + data.onlinecourse.content[i].money + '</span></div>';
